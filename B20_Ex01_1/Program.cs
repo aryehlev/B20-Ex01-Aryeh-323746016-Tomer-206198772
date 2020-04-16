@@ -12,8 +12,8 @@ namespace B20_Ex01_1
             string secondBinaryNumberFromUser = getLegalBinaryInputFromUser();
             string thirdBinaryNumberFromUser = getLegalBinaryInputFromUser();
             string messageDecimal = string.Format(
-                             "these are the numbers in decimal by order:{0} , {1} , {2}" ,
-                             firstBinaryNumberFromUser, secondBinaryNumberFromUser, thirdBinaryNumberFromUser); 
+                             "these are the numbers in decimal by order:{0} , {1} , {2}",
+                             convertBinaryToDecimal(firstBinaryNumberFromUser), convertBinaryToDecimal(secondBinaryNumberFromUser), convertBinaryToDecimal(thirdBinaryNumberFromUser));
             System.Console.WriteLine(messageDecimal);
             byte averageNumberOfZero = averageNumberOfZeros(
                 firstBinaryNumberFromUser,
@@ -21,7 +21,7 @@ namespace B20_Ex01_1
                 thirdBinaryNumberFromUser);
             string messageAverage = string.Format(
                 "The average number of zeroes in all three numbers is: {0}{2}The average number of ones in all three numbers is:{1}",
-                averageNumberOfZero, 9 - averageNumberOfZero, System.Environment.NewLine);
+                 averageNumberOfZero, 9 - averageNumberOfZero, System.Environment.NewLine);
             System.Console.WriteLine(messageAverage);
             byte countPowerOf2s = countPowerOf2s(
                 firstBinaryNumberFromUser,
@@ -30,7 +30,7 @@ namespace B20_Ex01_1
             string messageAverage = string.Format(
                 "The average number of zeroes in all three numbers is: {0}{2}The average number of ones in all three numbers is:{1}",
                 averageNumberOfZero, 9 - averageNumberOfZero, System.Environment.NewLine);
-            
+
             string messagePowerOf2 = string.Format("")
 
         }
@@ -101,7 +101,7 @@ namespace B20_Ex01_1
 
         private static bool isAPowerOf2(string i_BinaryNumber)
         {
-            return i_BinaryNumber.IndexOf('1') != i_BinaryNumber.LastIndexOf('1');
+            return i_BinaryNumber.IndexOf('1') != -1 && i_BinaryNumber.IndexOf('1') == i_BinaryNumber.LastIndexOf('1');
         }
 
 
