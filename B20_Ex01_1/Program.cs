@@ -11,9 +11,14 @@ namespace B20_Ex01_1
             string secondBinaryNumberFromUser = getLegalBinaryInputFromUser();
             string thirdBinaryNumberFromUser = getLegalBinaryInputFromUser();
             string messageDecimal = string.Format(
-                " these are the numbers in decimal by order:{0} , {1} , {2}" , firstBinaryNumberFromUser, secondBinaryNumberFromUser, thirdBinaryNumberFromUser);
-
+                             "these are the numbers in decimal by order:{0} , {1} , {2}" ,
+                             firstBinaryNumberFromUser, secondBinaryNumberFromUser, thirdBinaryNumberFromUser); 
             System.Console.WriteLine(messageDecimal);
+            byte averageNumberOfZeros(firstBinaryNumberFromUser, secondBinaryNumberFromUser, thirdBinaryNumberFromUser)
+            string messageDecimal = string.Format(
+                "these are the numbers in decimal by order:{0} , {1}",
+                averageNumberOfZeros(firstBinaryNumberFromUser,  secondBinaryNumberFromUser, thirdBinaryNumberFromUser), );
+
 
 
         }
@@ -59,7 +64,7 @@ namespace B20_Ex01_1
 
         private static byte averageNumberOfZeros(string i_FirstBinaryNumber, string i_SecondBinaryNumber, string i_ThirdBinaryNumber)
         {
-            byte numberOfZeros = 0;
+            int numberOfZeros = 0;
             string stringConcatination = string.Format("{0}{1}{2}", i_FirstBinaryNumber, i_SecondBinaryNumber, i_ThirdBinaryNumber);
             foreach(char digit in stringConcatination)
             {
@@ -69,7 +74,7 @@ namespace B20_Ex01_1
                 }
             }
 
-            return numberOfZeros / (stringConcatination.Length);
+            return (byte)(numberOfZeros / stringConcatination.Length);
         }
 
         private static byte averageNumberOfOnes()
