@@ -6,17 +6,15 @@ namespace B20_Ex01_1
     {
         static void Main()
         {
-            System.Console.WriteLine("Hi. Please enter three 9 digit binary numbers (and press enter):");
-            string[] inputNumbersFromUser = new string[3];
-            for(int i = 0; i < inputNumbersFromUser.Length; i++)
-            {
-                inputNumbersFromUser[i] = getLegalBinaryInputFromUser();
-            }
-            System.Console.WriteLine("Your numbers, converted to decimal:");
-            for (int i = 0; i < inputNumbersFromUser.Length; i++)
-            {
-                System.Console.WriteLine(convertBinaryToDecimal(inputNumbersFromUser[i]) + "\n");
-            }
+            System.Console.WriteLine("Hi. Please enter the first 9 digit binary number (and press enter):");
+            string firstBinaryNumberFromUser = getLegalBinaryInputFromUser();
+            string secondBinaryNumberFromUser = getLegalBinaryInputFromUser();
+            string thirdBinaryNumberFromUser = getLegalBinaryInputFromUser();
+            string messageDecimal = string.Format(
+                " these are the numbers in decimal by order:{0} , {1} , {2}" , firstBinaryNumberFromUser, secondBinaryNumberFromUser, thirdBinaryNumberFromUser);
+
+            System.Console.WriteLine(messageDecimal);
+
 
         }
 
@@ -59,9 +57,19 @@ namespace B20_Ex01_1
             return convertedNumber;
         }
 
-        private static byte averageNumberOfZeros(string[] i_Binary)
+        private static byte averageNumberOfZeros(string i_FirstBinaryNumber, string i_SecondBinaryNumber, string i_ThirdBinaryNumber)
         {
-            return 0;
+            byte numberOfZeros = 0;
+            string stringConcatination = string.Format("{0}{1}{2}", i_FirstBinaryNumber, i_SecondBinaryNumber, i_ThirdBinaryNumber);
+            foreach(char digit in stringConcatination)
+            {
+                if(digit == '0')
+                {
+                    numberOfZeros++;
+                }
+            }
+
+            return numberOfZeros / (stringConcatination.Length);
         }
 
         private static byte averageNumberOfOnes()
