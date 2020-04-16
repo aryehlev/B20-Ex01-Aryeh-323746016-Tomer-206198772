@@ -4,8 +4,7 @@
     {
         static void Main()
         {
-            //////asdsadasdsad
+            System.Console.WriteLine("aaahh gigi");
         }
-
     }
 }
