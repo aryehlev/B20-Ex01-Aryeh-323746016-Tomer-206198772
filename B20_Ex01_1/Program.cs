@@ -31,10 +31,12 @@ namespace B20_Ex01_1
                 firstBinaryNumberFromUser,
                 secondBinaryNumberFromUser,
                 thirdBinaryNumberFromUser);
-            byte number 
-            string msgPowerOf2s = string.Format(
-                "The amount of numbers that are a power of two is: {0}",
-                numberPowerOf2s);
+        
+            byte numberOfAscendingOrders = countNumbersWithAscendingOrder(
+                firstDecimalNumber, secondDecimalNumber, thirdDecimalNumber);
+                string msgPowerOf2s = string.Format(
+                "The amount of numbers that are a in decimal order is: {0}",
+                numberOfAscendingOrders);
 
             
 
