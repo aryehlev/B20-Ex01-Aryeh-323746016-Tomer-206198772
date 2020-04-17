@@ -31,14 +31,25 @@ namespace B20_Ex01_1
                 firstBinaryNumberFromUser,
                 secondBinaryNumberFromUser,
                 thirdBinaryNumberFromUser);
-        
+            string msgPowerOf2s = string.Format(
+                "The amount of numbers that are a in decimal order is: {0}",
+                numberPowerOf2s);
+            System.Console.WriteLine(msgPowerOf2s);
+
+
             byte numberOfAscendingOrders = countNumbersWithAscendingOrder(
                 firstDecimalNumber, secondDecimalNumber, thirdDecimalNumber);
-                string msgPowerOf2s = string.Format(
-                "The amount of numbers that are a in decimal order is: {0}",
+                string msgNumberOfAscendingOrders = string.Format(
+                "The amount of numbers that are in ascending orders is: {0}",
                 numberOfAscendingOrders);
+            System.Console.WriteLine(msgNumberOfAscendingOrders);
 
-            
+
+
+
+
+
+
 
         }
 
@@ -140,30 +151,12 @@ namespace B20_Ex01_1
 
         private static ushort findMaxNumber(ushort i_FirstDecimalNumber, ushort i_SecondDecimalNumber, ushort i_ThirdDecimalNumber)
         {
-            ushort maxNumber = i_FirstDecimalNumber;
-            if(i_SecondDecimalNumber > maxNumber)
-            {
-                maxNumber = i_SecondDecimalNumber;
-            }
-            if (i_SecondDecimalNumber > maxNumber)
-            {
-                maxNumber = i_ThirdDecimalNumber;
-            }
-            return maxNumber;
+            return Math.Max(Math.Max(i_FirstDecimalNumber, i_SecondDecimalNumber), i_ThirdDecimalNumber);
         }
 
         private static ushort findMinNumber(ushort i_FirstDecimalNumber, ushort i_SecondDecimalNumber, ushort i_ThirdDecimalNumber)
         {
-            ushort minNumber = i_FirstDecimalNumber;
-            if (i_SecondDecimalNumber < minNumber)
-            {
-                minNumber = i_SecondDecimalNumber;
-            }
-            if (i_SecondDecimalNumber < minNumber)
-            {
-                minNumber = i_ThirdDecimalNumber;
-            }
-            return minNumber;
+            return Math.Min(Math.Min(i_FirstDecimalNumber, i_SecondDecimalNumber), i_ThirdDecimalNumber);
         }
     }
 }
