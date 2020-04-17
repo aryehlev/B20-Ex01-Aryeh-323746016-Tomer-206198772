@@ -2,18 +2,18 @@
 
 namespace B20_Ex01_2
 {
-    class Program
+    public class Program
     {
         static void Main()
         {
             SandClock(5);
         }
 
-        public static void SandClock(int i_SizeOfSandClock)
+        public static void SandClock(uint i_SizeOfSandClock)
         {
             sandClock(i_SizeOfSandClock, i_SizeOfSandClock);
         }
-        private static void sandClock(int i_SizeOfSandClock, int i_NumberOfCharactersInLine)
+        private static void sandClock(uint i_SizeOfSandClock, uint i_NumberOfCharactersInLine)
         {
             string rowToPrint = "";
             if (i_NumberOfCharactersInLine == 1)
@@ -29,12 +29,12 @@ namespace B20_Ex01_2
             System.Console.WriteLine(rowToPrint);
         }
 
-        private static string generateRow(int i_SizeOfSandClock, int i_NumberOfCharactersInLine)
+        private static string generateRow(uint i_SizeOfSandClock, uint i_NumberOfCharactersInLine)
         { 
             StringBuilder row = new StringBuilder();
-            row.Append(' ', (i_SizeOfSandClock - i_NumberOfCharactersInLine) / 2);
-            row.Append('*', i_NumberOfCharactersInLine);
-            row.Append(' ', (i_SizeOfSandClock - i_NumberOfCharactersInLine) / 2);
+            row.Append(' ', (int)(i_SizeOfSandClock - i_NumberOfCharactersInLine) / 2);
+            row.Append('*', (int)i_NumberOfCharactersInLine);
+            row.Append(' ', (int)(i_SizeOfSandClock - i_NumberOfCharactersInLine) / 2);
             return row.ToString();
         }
     }
