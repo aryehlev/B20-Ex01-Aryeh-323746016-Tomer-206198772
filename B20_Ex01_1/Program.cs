@@ -137,5 +137,33 @@ namespace B20_Ex01_1
 
             return true;
         }
+
+        private static ushort findMaxNumber(ushort i_FirstDecimalNumber, ushort i_SecondDecimalNumber, ushort i_ThirdDecimalNumber)
+        {
+            ushort maxNumber = i_FirstDecimalNumber;
+            if(i_SecondDecimalNumber > maxNumber)
+            {
+                maxNumber = i_SecondDecimalNumber;
+            }
+            if (i_SecondDecimalNumber > maxNumber)
+            {
+                maxNumber = i_ThirdDecimalNumber;
+            }
+            return maxNumber;
+        }
+
+        private static ushort findMinNumber(ushort i_FirstDecimalNumber, ushort i_SecondDecimalNumber, ushort i_ThirdDecimalNumber)
+        {
+            ushort minNumber = i_FirstDecimalNumber;
+            if (i_SecondDecimalNumber < minNumber)
+            {
+                minNumber = i_SecondDecimalNumber;
+            }
+            if (i_SecondDecimalNumber < minNumber)
+            {
+                minNumber = i_ThirdDecimalNumber;
+            }
+            return minNumber;
+        }
     }
 }
