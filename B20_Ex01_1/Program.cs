@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Messaging;
 
 namespace B20_Ex01_1
 {
@@ -11,27 +12,31 @@ namespace B20_Ex01_1
             string firstBinaryNumberFromUser = getLegalBinaryInputFromUser();
             string secondBinaryNumberFromUser = getLegalBinaryInputFromUser();
             string thirdBinaryNumberFromUser = getLegalBinaryInputFromUser();
+            ushort firstDecimalNumber = convertBinaryToDecimal(firstBinaryNumberFromUser);
+            ushort secondDecimalNumber = convertBinaryToDecimal(secondBinaryNumberFromUser);
+            ushort thirdDecimalNumber = convertBinaryToDecimal(thirdBinaryNumberFromUser);
             string messageDecimal = string.Format(
                              "these are the numbers in decimal by order:{0} , {1} , {2}",
-                             convertBinaryToDecimal(firstBinaryNumberFromUser), convertBinaryToDecimal(secondBinaryNumberFromUser), convertBinaryToDecimal(thirdBinaryNumberFromUser));
+                             firstDecimalNumber, secondDecimalNumber, thirdDecimalNumber);
             System.Console.WriteLine(messageDecimal);
-            byte averageNumberOfZero = averageNumberOfZeros(
+            byte avgNumZeros = averageNumberOfZeros(
                 firstBinaryNumberFromUser,
                 secondBinaryNumberFromUser,
                 thirdBinaryNumberFromUser);
-            string messageAverage = string.Format(
+            string msgAverage = string.Format(
                 "The average number of zeroes in all three numbers is: {0}{2}The average number of ones in all three numbers is:{1}",
-                 averageNumberOfZero, 9 - averageNumberOfZero, System.Environment.NewLine);
-            System.Console.WriteLine(messageAverage);
-            byte countPowerOf2s = countPowerOf2s(
+                avgNumZeros, 9 - avgNumZeros, System.Environment.NewLine);
+            System.Console.WriteLine(msgAverage);
+            byte numberPowerOf2s = countPowerOf2s(
                 firstBinaryNumberFromUser,
                 secondBinaryNumberFromUser,
                 thirdBinaryNumberFromUser);
-            string messageAverage = string.Format(
-                "The average number of zeroes in all three numbers is: {0}{2}The average number of ones in all three numbers is:{1}",
-                averageNumberOfZero, 9 - averageNumberOfZero, System.Environment.NewLine);
+            byte number 
+            string msgPowerOf2s = string.Format(
+                "The amount of numbers that are a power of two is: {0}",
+                numberPowerOf2s);
 
-            string messagePowerOf2 = string.Format("")
+            
 
         }
 
@@ -105,5 +110,30 @@ namespace B20_Ex01_1
         }
 
 
+        private static byte countNumbersWithAscendingOrder(ushort i_FirstDecimalNumber, ushort i_SecondDecimalNumber, ushort i_ThirdBDecimalNumber)
+        {
+            int count = 0;
+            count += isAscendingOrder(i_FirstDecimalNumber) ? 1 : 0;
+            count += isAscendingOrder(i_SecondDecimalNumber) ? 1 : 0;
+            count += isAscendingOrder(i_ThirdBDecimalNumber) ? 1 : 0;
+            return (byte)count;
+        }
+
+        private static bool isAscendingOrder(ushort i_DecimalNumber)
+        {
+            string strDecimalNumber = i_DecimalNumber.ToString();
+            char previousDigit = '0';
+            foreach(char currentDigit in strDecimalNumber)
+            {
+                if(currentDigit < previousDigit)
+                {
+                    return false;
+                }
+
+                previousDigit = currentDigit;
+            }
+
+            return true;
+        }
     }
 }
