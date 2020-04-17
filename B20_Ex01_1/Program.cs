@@ -16,7 +16,7 @@ namespace B20_Ex01_1
             ushort secondDecimalNumber = convertBinaryToDecimal(secondBinaryNumberFromUser);
             ushort thirdDecimalNumber = convertBinaryToDecimal(thirdBinaryNumberFromUser);
             string messageDecimal = string.Format(
-                             "these are the numbers in decimal by order:{0} , {1} , {2}",
+                             "These are the numbers in decimal by order: {0} , {1} , {2}",
                              firstDecimalNumber, secondDecimalNumber, thirdDecimalNumber);
             System.Console.WriteLine(messageDecimal);
             byte avgNumZeros = averageNumberOfZeros(
@@ -24,7 +24,7 @@ namespace B20_Ex01_1
                 secondBinaryNumberFromUser,
                 thirdBinaryNumberFromUser);
             string msgAverage = string.Format(
-                "The average number of zeroes in all three numbers is: {0}{2}The average number of ones in all three numbers is:{1}",
+                "The average number of zeroes in all three numbers is: {0}{2}The average number of ones in all three numbers is: {1}",
                 avgNumZeros, 9 - avgNumZeros, System.Environment.NewLine);
             System.Console.WriteLine(msgAverage);
             byte numberPowerOf2s = countPowerOf2s(
@@ -32,25 +32,21 @@ namespace B20_Ex01_1
                 secondBinaryNumberFromUser,
                 thirdBinaryNumberFromUser);
             string msgPowerOf2s = string.Format(
-                "The amount of numbers that are a in decimal order is: {0}",
+                "The amount of numbers that are a power of 2 is: {0}",
                 numberPowerOf2s);
             System.Console.WriteLine(msgPowerOf2s);
-
-
             byte numberOfAscendingOrders = countNumbersWithAscendingOrder(
                 firstDecimalNumber, secondDecimalNumber, thirdDecimalNumber);
                 string msgNumberOfAscendingOrders = string.Format(
                 "The amount of numbers that are in ascending orders is: {0}",
                 numberOfAscendingOrders);
             System.Console.WriteLine(msgNumberOfAscendingOrders);
-
-
-
-
-
-
-
-
+            ushort maxNumber = findMaxNumber(firstDecimalNumber, secondDecimalNumber, thirdDecimalNumber);
+            ushort minNumber = findMinNumber(firstDecimalNumber, secondDecimalNumber, thirdDecimalNumber);
+            string msgMinAndMaxNumbers = string.Format(
+                "The minimal number is: {0}, the maximal number is: {1}",
+                minNumber, maxNumber);
+            System.Console.WriteLine(msgMinAndMaxNumbers);
         }
 
         private static string getLegalBinaryInputFromUser()
@@ -138,7 +134,7 @@ namespace B20_Ex01_1
             char previousDigit = '0';
             foreach(char currentDigit in strDecimalNumber)
             {
-                if(currentDigit < previousDigit)
+                if(currentDigit <= previousDigit)
                 {
                     return false;
                 }
