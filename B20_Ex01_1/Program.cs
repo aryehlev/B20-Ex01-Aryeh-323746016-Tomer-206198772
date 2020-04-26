@@ -88,11 +88,10 @@ namespace B20_Ex01_1
             return convertedNumber;
         }
 
-        private static byte averageNumberOfZeros(string i_FirstBinaryNumber, string i_SecondBinaryNumber, string i_ThirdBinaryNumber)
+        private static byte numberOfZeros(string i_BinaryNumber)
         {
-            int numberOfZeros = 0;
-            string stringConcatenation = string.Format("{0}{1}{2}", i_FirstBinaryNumber, i_SecondBinaryNumber, i_ThirdBinaryNumber);
-            foreach(char digit in stringConcatenation)
+            byte numberOfZeros = 0;
+            foreach(char digit in i_BinaryNumber)
             {
                 if(digit == '0')
                 {
@@ -100,7 +99,7 @@ namespace B20_Ex01_1
                 }
             }
 
-            return (byte)(numberOfZeros / 3);
+            return numberOfZeros;
         }
 
         private static byte countPowerOf2s(string i_FirstBinaryNumber, string i_SecondBinaryNumber, string i_ThirdBinaryNumber)
